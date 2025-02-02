@@ -6,6 +6,7 @@ import androidx.room.Room;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.HorizontalScrollView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,7 +19,7 @@ import java.util.concurrent.Executors;
 
 public class MainActivity extends AppCompatActivity {
 
-    private HorizontalScrollView expenseScrollView;
+    private LinearLayout expenseView;
     private EditText editNameInput;
     private EditText editPriceInput;
     private Button submitButton;
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Get scroll container
-        expenseScrollView = findViewById(R.id.expenseScrollView);
+        expenseView = findViewById(R.id.expenseLinearLayout);
 
         // Find inputs
         editNameInput = findViewById(R.id.editName);
@@ -77,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         TextView label = new TextView((this));
         label.setText(expense.name + " | $" + expense.price);
 
-        expenseScrollView.addView(label);
+        expenseView.addView(label);
     }
 
     // Executor Service
